@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Aliia Pazylova | Educator & Founder</title>
-    <!-- Google Fonts + Smooth -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliia Pazylova | English Teacher & Founder</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -17,65 +15,46 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0B0C10;
-            color: #EFF3F6;
+            background: #0A0A0F;
+            color: #EDEDF0;
             line-height: 1.5;
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
 
-        /* animated gradient bg - unusual movement */
-        body::before {
-            content: "";
+        /* animated gradient background */
+        .gradient-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(80, 70, 200, 0.15), rgba(10, 10, 20, 0.95));
+            background: radial-gradient(circle at 20% 30%, rgba(100, 70, 200, 0.12), rgba(5, 5, 12, 0.96));
             z-index: -2;
-            pointer-events: none;
         }
 
-        body::after {
-            content: "";
-            position: fixed;
+        .gradient-bg::after {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 2px, transparent 2px, transparent 8px);
-            z-index: -1;
+            background: repeating-linear-gradient(45deg, rgba(255,255,255,0.008) 0px, rgba(255,255,255,0.008) 2px, transparent 2px, transparent 10px);
             pointer-events: none;
         }
 
-        /* custom cursor (playful but subtle) */
-        .custom-cursor {
-            width: 8px;
-            height: 8px;
-            background: #9b59f0;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease;
-            box-shadow: 0 0 12px #a855f7;
-            transform: translate(-50%, -50%);
-        }
-
-        /* smooth scroll + container */
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 28px;
+            padding: 0 24px;
         }
 
-        /* glass header */
+        /* header */
         header {
             position: sticky;
             top: 0;
             backdrop-filter: blur(16px);
-            background: rgba(11, 12, 16, 0.7);
+            background: rgba(10, 10, 15, 0.75);
             border-bottom: 1px solid rgba(139, 92, 246, 0.25);
             z-index: 100;
         }
@@ -84,15 +63,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 0;
+            padding: 20px 0;
             flex-wrap: wrap;
             gap: 16px;
         }
 
         .logo {
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            background: linear-gradient(130deg, #A855F7, #3B82F6);
+            background: linear-gradient(135deg, #C084FC, #3B82F6);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -101,24 +80,22 @@
 
         .nav-links {
             display: flex;
-            gap: 28px;
-            flex-wrap: wrap;
+            gap: 32px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #CBD5E1;
+            color: #C9D1D9;
             font-weight: 500;
-            transition: 0.25s;
+            transition: 0.2s;
             font-size: 0.95rem;
         }
 
         .nav-links a:hover {
-            color: #c084fc;
-            text-shadow: 0 0 5px #a855f7;
+            color: #C084FC;
         }
 
-        /* buttons & glowing */
+        /* buttons */
         .btn-primary {
             background: linear-gradient(95deg, #8B5CF6, #3B82F6);
             border: none;
@@ -130,108 +107,181 @@
             transition: transform 0.2s, box-shadow 0.2s;
             display: inline-block;
             text-decoration: none;
-            box-shadow: 0 8px 20px -8px rgba(59,130,246,0.4);
+            box-shadow: 0 6px 18px -6px #8B5CF6;
         }
 
         .btn-primary:hover {
-            transform: scale(1.02);
-            box-shadow: 0 12px 26px -8px #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -8px #a855f7;
         }
 
-        .btn-outline-light {
+        .btn-outline {
             background: transparent;
             border: 1.5px solid #a855f7;
-            padding: 10px 24px;
+            padding: 10px 26px;
             border-radius: 40px;
-            color: #e2e8f0;
+            color: #E2E8F0;
             font-weight: 500;
             transition: 0.2s;
             text-decoration: none;
             display: inline-block;
         }
 
-        .btn-outline-light:hover {
-            background: rgba(168, 85, 247, 0.15);
+        .btn-outline:hover {
+            background: rgba(168, 85, 247, 0.12);
             border-color: #c084fc;
             color: white;
         }
 
         /* hero */
         .hero {
-            padding: 80px 0 70px;
+            padding: 80px 0 60px;
             text-align: center;
         }
 
-        .avatar-icon {
-            width: 110px;
-            height: 110px;
-            background: linear-gradient(145deg, #2d2a4e, #1a1b2f);
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(145deg, #2A2350, #1A1B2F);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 24px;
-            font-size: 58px;
-            color: #c58aff;
+            font-size: 48px;
+            font-weight: 700;
+            color: #C58AFF;
             border: 1px solid rgba(168, 85, 247, 0.5);
-            box-shadow: 0 18px 30px -12px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
         }
 
         .hero h1 {
-            font-size: 3.4rem;
+            font-size: 3.2rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #FFFFFF, #c6a9ff);
+            background: linear-gradient(135deg, #FFFFFF, #C9B2FF);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             letter-spacing: -0.02em;
         }
 
-        .typing-wrapper {
-            font-size: 1.6rem;
-            margin-top: 12px;
-            margin-bottom: 20px;
-            min-height: 70px;
+        .subhead {
+            font-size: 1.3rem;
+            color: #B9C7D9;
+            margin: 16px 0 24px;
         }
 
-        #typed-text {
-            background: linear-gradient(120deg, #b77cff, #3b82f6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 600;
+        .badge-line {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 28px 0 20px;
         }
 
-        .hero-desc {
-            max-width: 650px;
-            margin: 0 auto 36px;
-            color: #b9c7d9;
-            font-size: 1.1rem;
+        .badge {
+            background: rgba(139, 92, 246, 0.15);
+            padding: 6px 18px;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            border: 0.5px solid rgba(139,92,246,0.4);
         }
 
-        /* sections common */
+        /* sections */
         section {
             padding: 70px 0;
-            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+            border-bottom: 1px solid rgba(71, 85, 105, 0.25);
         }
 
         .section-title {
-            font-size: 2.4rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 48px;
+            margin-bottom: 40px;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #f0f3fa, #b4c2e0);
+            background: linear-gradient(135deg, #F0F3FA, #B9C8FF);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            display: inline-block;
         }
 
-        /* scroll reveal fade-up */
+        /* story card */
+        .story-card {
+            background: rgba(20, 22, 36, 0.6);
+            backdrop-filter: blur(4px);
+            border-radius: 32px;
+            padding: 40px;
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            transition: 0.3s;
+        }
+
+        .story-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .quote-block {
+            font-size: 1.6rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 32px 20px;
+            background: linear-gradient(145deg, #1E1A3A, #121126);
+            border-radius: 48px;
+            margin: 40px 0;
+            border-left: 5px solid #a855f7;
+            border-right: 5px solid #3b82f6;
+        }
+
+        /* two column services */
+        .two-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background: rgba(18, 20, 32, 0.7);
+            border-radius: 28px;
+            padding: 32px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.25s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(139, 92, 246, 0.6);
+            background: rgba(30, 32, 52, 0.8);
+        }
+
+        .service-icon {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #C084FC;
+        }
+
+        .service-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .contact-email {
+            background: #0F0F1A;
+            border-radius: 60px;
+            padding: 18px 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            margin-top: 16px;
+            border: 1px solid #2d2a4a;
+        }
+
         .reveal {
             opacity: 0;
-            transform: translateY(35px);
-            transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
         .reveal.active {
@@ -239,154 +289,32 @@
             transform: translateY(0);
         }
 
-        /* cards grid */
-        .grid-2col {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 28px;
-        }
-
-        .glass-card {
-            background: rgba(20, 22, 36, 0.6);
-            backdrop-filter: blur(4px);
-            border-radius: 32px;
-            padding: 28px;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            transition: all 0.25s;
-            box-shadow: 0 12px 18px -12px rgba(0,0,0,0.4);
-        }
-
-        .glass-card:hover {
-            border-color: rgba(139, 92, 246, 0.6);
-            transform: translateY(-5px);
-            background: rgba(30, 32, 52, 0.7);
-            box-shadow: 0 24px 32px -16px #8b5cf630;
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 18px;
-            color: #b77cff;
-        }
-
-        .card-title {
-            font-size: 1.55rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .date-tag {
-            font-size: 0.8rem;
-            color: #a0aec0;
-            margin-bottom: 12px;
-            letter-spacing: 0.3px;
-        }
-
-        .honor-badge {
-            background: rgba(168, 85, 247, 0.2);
-            border-radius: 40px;
-            padding: 6px 14px;
-            font-size: 0.75rem;
-            display: inline-block;
-            margin-bottom: 12px;
-            border-left: 2px solid #a855f7;
-        }
-
-        .skill-tag {
-            background: #1e1f2e;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin: 6px 6px 0 0;
-            border: 0.5px solid #3b3f5c;
-        }
-
-        /* internship contact card */
-        .internship-cta {
-            text-align: center;
-            background: linear-gradient(115deg, #14172b, #101126);
-            border-radius: 48px;
-            padding: 48px 28px;
-            border: 1px solid rgba(139, 92, 246, 0.5);
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 28px;
-            flex-wrap: wrap;
-            margin-top: 32px;
-        }
-
-        .contact-icon {
-            background: #181c2c;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            color: #c58aff;
-            transition: 0.2s;
-            text-decoration: none;
-        }
-
-        .contact-icon:hover {
-            background: #8b5cf6;
-            color: #0b0c10;
-            transform: scale(1.05);
-        }
-
         footer {
             text-align: center;
-            padding: 32px;
+            padding: 40px 20px;
             font-size: 0.8rem;
-            color: #6b7280;
+            color: #6B7280;
         }
 
         @media (max-width: 700px) {
             .hero h1 { font-size: 2.3rem; }
-            .typing-wrapper { font-size: 1.2rem; }
-            .section-title { font-size: 1.9rem; }
-            .container { padding: 0 20px; }
-        }
-
-        hr {
-            border-color: #2d3748;
-            margin: 10px 0;
-        }
-
-        .inline-list {
-            list-style: none;
-            margin-top: 12px;
-        }
-        .inline-list li {
-            margin-bottom: 8px;
-            display: flex;
-            gap: 12px;
-            align-items: baseline;
-        }
-        .inline-list li i {
-            width: 24px;
-            color: #a855f7;
+            .quote-block { font-size: 1.2rem; }
+            .section-title { font-size: 1.8rem; }
+            .story-card { padding: 28px; }
         }
     </style>
 </head>
 <body>
-<div class="custom-cursor" id="cursor"></div>
+<div class="gradient-bg"></div>
 
 <header>
     <div class="container">
         <nav>
-            <div class="logo">ALI<span style="color:#c084fc;">A</span> PAZ</div>
+            <div class="logo">ALI<span style="color:#c084fc;">IA</span></div>
             <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Startups</a>
-                <a href="#honors">Honors</a>
-                <a href="#contact">Connect</a>
+                <a href="#story">Story</a>
+                <a href="#whatido">What I Do</a>
+                <a href="#contact">Contact</a>
             </div>
         </nav>
     </div>
@@ -396,173 +324,99 @@
     <div class="container">
         <!-- Hero -->
         <div class="hero reveal">
-            <div class="avatar-icon">
-                <i class="fas fa-chalkboard-user"></i>
+            <div class="avatar">
+                AP
             </div>
             <h1>Aliia Pazylova</h1>
-            <div class="typing-wrapper">
-                <span>✦ </span><span id="typed-text"></span><span class="cursor-blink">_</span>
+            <div class="subhead">English Teacher · Debater · Founder</div>
+            <div class="badge-line">
+                <span class="badge"><i class="fas fa-chalkboard"></i> Bilim Nuru</span>
+                <span class="badge"><i class="fas fa-gavel"></i> LegalLearn</span>
+                <span class="badge"><i class="fas fa-globe"></i> InterNova</span>
+                <span class="badge"><i class="fas fa-comments"></i> 200+ Debate Club</span>
             </div>
-            <p class="hero-desc">English Educator | Founder | Entrepreneurial Leader — helping students unlock global opportunities through language, internships & innovation.</p>
-            <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Contact me</a>
-            <a href="#" id="download-cv-btn" class="btn-outline-light" style="margin-left: 15px;"><i class="fas fa-download"></i> Download CV (PDF)</a>
+            <div style="margin-top: 32px;">
+                <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Work with me</a>
+            </div>
         </div>
 
-        <!-- About / short intro + English teaching + internship curator -->
-        <section id="about">
-            <h2 class="section-title reveal">About me</h2>
-            <div class="grid-2col">
-                <div class="glass-card reveal">
-                    <div class="card-icon"><i class="fas fa-language"></i></div>
-                    <div class="card-title">English Teacher & Mentor</div>
-                    <p>Founder of <strong>Bilim Nuru</strong> English course. I teach beginner to advanced learners with personalized lesson plans. Passionate about making English accessible and empowering students to think globally.</p>
-                    <div style="margin-top: 16px;"><i class="fas fa-graduation-cap"></i> Valedictorian & Class President (8 years)</div>
+        <!-- Story Section: from shy girl to 200+ debate club -->
+        <section id="story">
+            <h2 class="section-title reveal">My story</h2>
+            <div class="story-card reveal">
+                <p>I was the <strong>shyest girl in the entire class</strong>. Speaking in front of people felt impossible. But something inside refused to stay small. I started with one sentence, then one speech, then one debate.</p>
+                <p>Today? I founded <strong>"Indigo Skies" Debate Club</strong> — now home to <strong>over 200 members</strong>. From silence to leading a community of voices. That transformation taught me something powerful: <strong>education isn't just about books — it's about unlocking who you can become.</strong></p>
+                <div class="quote-block">
+                    <i class="fas fa-quote-left" style="margin-right: 12px; color:#a855f7;"></i> 
+                    If you want to destroy a country, destroy its education system.  
+                    <i class="fas fa-quote-right" style="margin-left: 12px; color:#3b82f6;"></i>
+                    <div style="font-size: 0.9rem; margin-top: 12px;">— Because education is the foundation of everything.</div>
                 </div>
-                <div class="glass-card reveal">
-                    <div class="card-icon"><i class="fas fa-briefcase"></i></div>
-                    <div class="card-title">Internship Curator</div>
-                    <p>Through my startup <strong>InterNova</strong>, I'm building a bridge for youth (16-25) to international internships. Students, reach out for personalized guidance & opportunities.</p>
-                    <div class="honor-badge"><i class="fas fa-envelope"></i> aliapazylova2008@gmail.com</div>
-                </div>
+                <p>Now I teach English, build startups, and help students find internships. Because I believe every young person deserves a mentor who sees their potential before they see it themselves.</p>
             </div>
         </section>
 
-        <!-- Education & leadership -->
-        <section id="education">
-            <h2 class="section-title reveal">🎓 Education & Leadership</h2>
-            <div class="glass-card reveal" style="margin-bottom: 28px;">
-                <div class="card-title">V.I. Lenin School No. 66</div>
-                <div class="date-tag">09/2014 – 05/2025 | GPA 5.0 (Highest)</div>
-                <p><strong>Valedictorian</strong> • Class President for 8 years • School Council President for 2 years<br>
-                🏆 1st Place — English Olympiad, History Olympiad • National Olympiad participant</p>
-            </div>
-            <div class="grid-2col">
-                <div class="glass-card reveal"><i class="fas fa-globe"></i> <strong>Nazarbayev University</strong> — Entrepreneurship Program (Summer 2025)<br>Developed social-impact startup</div>
-                <div class="glass-card reveal"><i class="fas fa-university"></i> <strong>UPenn Pre-College</strong> (Summer 2025) • <strong>LaunchX</strong> (100% Financial Aid) • <strong>Oxford Summer School</strong> (50% FA)</div>
-            </div>
-        </section>
+        <!-- What I Do: English + LegalLearn + InterNova -->
+        <section id="whatido">
+            <h2 class="section-title reveal">What I do</h2>
+            <div class="two-grid">
+                <!-- English Teaching -->
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fas fa-language"></i></div>
+                    <div class="service-title">English Teacher</div>
+                    <p>Founder of <strong>Bilim Nuru</strong> — helping students from beginner to advanced. Personalized lessons, real communication skills, and confidence.</p>
+                </div>
 
-        <!-- Work Experience -->
-        <section id="experience">
-            <h2 class="section-title reveal">💼 Work Experience</h2>
-            <div class="grid-2col">
-                <div class="glass-card reveal">
-                    <div class="card-title">Assistant to the CEO</div>
-                    <div class="date-tag">Local Business Association, Osh | 12/2025 – Present</div>
-                    <p>Administrative & executive support, coordinating communication with entrepreneurs.</p>
+                <!-- LegalLearn -->
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fas fa-scale-balanced"></i></div>
+                    <div class="service-title">LegalLearn</div>
+                    <p><strong>Legal English for lawyers & law students.</strong> Contracts, courtroom language, legal writing — designed specifically for legal professionals.</p>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope" style="color:#c084fc;"></i> 
+                        <span>aliapazylova2008@gmail.com</span>
+                    </div>
+                    <div style="margin-top: 16px;"><span class="badge">📩 Say: "Legal English"</span></div>
                 </div>
-                <div class="glass-card reveal">
-                    <div class="card-title">Marketing Intern (Virtual)</div>
-                    <div class="date-tag">NSW Government - Forage | Summer 2025</div>
-                    <p>Marketing campaigns, market analysis & competitor research for local businesses.</p>
-                </div>
-                <div class="glass-card reveal">
-                    <div class="card-title">Founder & CEO, Avenue.kg</div>
-                    <div class="date-tag">02/2021 – 12/2023</div>
-                    <p>Launched Instagram online store → 20% sales growth, managed operations and marketing.</p>
+
+                <!-- InterNova + Internship Hub -->
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="service-title">InterNova</div>
+                    <p>Connecting students aged 16–25 with <strong>international internships</strong>. Are you a company hiring interns? Or a student looking for opportunities? Reach out.</p>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope" style="color:#c084fc;"></i> 
+                        <span>aliapazylova2008@gmail.com</span>
+                    </div>
+                    <div style="margin-top: 16px;"><span class="badge">🏢 Hiring interns? Let's talk</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- Entrepreneurial Projects + Leadership -->
-        <section id="projects">
-            <h2 class="section-title reveal">🚀 Entrepreneurial & Leadership Projects</h2>
-            <div class="grid-2col">
-                <div class="glass-card reveal"><div class="card-icon"><i class="fas fa-rocket"></i></div><div class="card-title">InterNova</div><div class="date-tag">Startup in development</div>Platform connecting youth (16-25) with international internships. Partnership outreach & research lead.</div>
-                <div class="glass-card reveal"><div class="card-icon"><i class="fas fa-gavel"></i></div><div class="card-title">LegalLearn</div><div class="date-tag">Legal English App</div>App for law students & lawyers to master professional legal English.</div>
-                <div class="glass-card reveal"><div class="card-icon"><i class="fas fa-chalkboard"></i></div><div class="card-title">Bilim Nuru</div><div class="date-tag">English Language Course, Kara-Suu</div>Teaching students from beginner to advanced, designing personalized learning plans.</div>
-                <div class="glass-card reveal"><div class="card-icon"><i class="fas fa-users"></i></div><div class="card-title">Debate Club "Indigo Skies"</div>Founder • 115+ members, educational scripts & quizzes, regional impact.</div>
-                <div class="glass-card reveal"><div class="card-icon"><i class="fas fa-microphone-alt"></i></div><div class="card-title">Innovate X</div>Team Lead → 3rd place in national IT competition (Hackathon).</div>
-                <div class="glass-card reveal"><div class="card-icon"><i class="fas fa-hand-sparkles"></i></div><div class="card-title">MUN Delegate (SAPATMUN & FPSMUN)</div>Best Delegate Award, debated refugee crisis & global policy.</div>
-            </div>
-        </section>
-
-        <!-- Honors & Awards / Volunteering -->
-        <section id="honors">
-            <h2 class="section-title reveal">🏅 Honors, Awards & Volunteering</h2>
-            <div class="glass-card reveal">
-                <ul class="inline-list">
-                    <li><i class="fas fa-trophy"></i> Best Delegate — Model UN (FPSMUN)</li>
-                    <li><i class="fas fa-trophy"></i> 3rd Place — National IT Competition (Team Leader, Hackathon)</li>
-                    <li><i class="fas fa-trophy"></i> 1st Place — International Reflection Essay Competition</li>
-                    <li><i class="fas fa-trophy"></i> 1st Place — International CaseCraft Business Case Competition</li>
-                    <li><i class="fas fa-medal"></i> 1st Place — English & History Regional Olympiad</li>
-                    <li><i class="fas fa-heart"></i> Volunteer — Luch Sveta (UNICEF funded): support for vulnerable groups 2021-2022</li>
-                    <li><i class="fas fa-star"></i> Admitted Participant — GYEL Program</li>
-                </ul>
-            </div>
-            <div class="grid-2col reveal" style="margin-top: 28px;">
-                <div class="glass-card"><i class="fas fa-language"></i> <strong>Languages:</strong> Kyrgyz (native), Russian (fluent), English (fluent)</div>
-                <div class="glass-card"><i class="fas fa-chart-line"></i> <strong>Skills:</strong> Instagram marketing, business analytics, project management, debate coaching, startup research</div>
-            </div>
-        </section>
-
-        <!-- Internship section: Option C Contact Me -->
-        <section id="internships">
-            <div class="internship-cta reveal">
-                <i class="fas fa-globe-asia" style="font-size: 48px; color:#b87cff; margin-bottom: 16px; display: inline-block;"></i>
-                <h2 style="font-size: 2rem; margin-bottom: 14px;">🌍 Looking for Internships?</h2>
-                <p style="max-width: 550px; margin: 0 auto 24px; font-size: 1.1rem;">I actively discover & share internship opportunities for students. Reach out directly, and let me help you land your next global experience.</p>
-                <a href="mailto:aliapazylova2008@gmail.com" class="btn-primary" style="background: #a855f7;"><i class="fas fa-envelope"></i> aliapazylova2008@gmail.com</a>
-                <p style="margin-top: 22px; font-size: 0.9rem;">✉️ Send your CV or questions — I'll respond with opportunities & guidance.</p>
-            </div>
-        </section>
-
-        <!-- Contact & Social -->
+        <!-- Contact / CTA only real LinkedIn -->
         <section id="contact">
-            <h2 class="section-title reveal">Let’s connect</h2>
-            <div class="contact-links reveal">
-                <a href="mailto:aliapazylova2008@gmail.com" class="contact-icon"><i class="fas fa-envelope"></i></a>
-                <a href="#" class="contact-icon" id="fake-github" style="cursor: pointer;"><i class="fab fa-github"></i></a>
-                <a href="#" class="contact-icon" id="fake-linkedin"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="contact-icon" id="fake-twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-            <div class="glass-card reveal" style="text-align: center; margin-top: 28px;">
-                <i class="fas fa-map-pin"></i> Kara-Suu, Osh, Kyrgyzstan & Global Remote<br>
-                <span style="font-size: 0.8rem;">Available for collaborations, speaking, mentorship</span>
+            <h2 class="section-title reveal">Contact me</h2>
+            <div class="story-card reveal" style="text-align: center;">
+                <p style="font-size: 1.2rem;"><i class="fas fa-envelope"></i> <strong>aliapazylova2008@gmail.com</strong></p>
+                <p>Whether you need <strong>Legal English coaching</strong>, want to <strong>share internship opportunities</strong>, or just want to connect — I reply to every message.</p>
+                <div style="margin: 32px 0 20px;">
+                    <a href="mailto:aliapazylova2008@gmail.com" class="btn-primary" style="margin-right: 12px;"><i class="fas fa-paper-plane"></i> Email me</a>
+                    <a href="https://www.linkedin.com/in/aliya-pazylova-00b1052ba" target="_blank" class="btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+                <div style="margin-top: 28px; font-size: 0.85rem; color: #9ca3af;">
+                    <i class="fas fa-map-marker-alt"></i> Kara-Suu, Osh, Kyrgyzstan — working globally
+                </div>
             </div>
         </section>
     </div>
 </main>
 
 <footer>
-    <p>© 2025 Aliia Pazylova — Educator & Entrepreneur. Built with curiosity & movement.</p>
+    <p>© 2025 Aliia Pazylova — Educator, Founder, Debater. <br> "Education is the foundation of every country."</p>
 </footer>
 
 <script>
-    // Typing effect
-    const phrases = ["English Teacher", "Startup Founder", "Internship Curator", "Valedictorian", "Debate Leader"];
-    let idx = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typedSpan = document.getElementById("typed-text");
-    
-    function typeEffect() {
-        const currentPhrase = phrases[idx];
-        if (isDeleting) {
-            typedSpan.innerText = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typedSpan.innerText = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
-        }
-        if (!isDeleting && charIndex === currentPhrase.length) {
-            isDeleting = true;
-            setTimeout(typeEffect, 1800);
-            return;
-        }
-        if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            idx = (idx + 1) % phrases.length;
-            setTimeout(typeEffect, 300);
-            return;
-        }
-        const speed = isDeleting ? 45 : 65;
-        setTimeout(typeEffect, speed);
-    }
-    typeEffect();
-
-    // Scroll reveal (Intersection Observer)
+    // scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -571,40 +425,9 @@
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
     reveals.forEach(el => observer.observe(el));
 
-    // Custom cursor (optional playfulness)
-    const cursor = document.getElementById('cursor');
-    if (cursor) {
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-        document.addEventListener('mouseleave', () => {
-            cursor.style.opacity = '0';
-        });
-        document.addEventListener('mouseenter', () => {
-            cursor.style.opacity = '1';
-        });
-    }
-
-    // Download CV dummy PDF placeholder (you can replace with actual pdf later)
-    const downloadBtn = document.getElementById('download-cv-btn');
-    downloadBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        alert("📄 You can upload your actual CV PDF to the website folder. For now, feel free to save this page as PDF or email me for the document. (aliapazylova2008@gmail.com)");
-        // In future: just replace href with "./Aliia_CV.pdf"
-    });
-
-    // fake social links for now (you can replace with your real profiles)
-    const fakeGithub = document.getElementById('fake-github');
-    const fakeLinkedin = document.getElementById('fake-linkedin');
-    const fakeTwitter = document.getElementById('fake-twitter');
-    if (fakeGithub) fakeGithub.addEventListener('click', () => alert("GitHub profile will be added soon! Contact me directly for code repos."));
-    if (fakeLinkedin) fakeLinkedin.addEventListener('click', () => alert("Let's connect on LinkedIn: message me via email and I'll share my profile."));
-    if (fakeTwitter) fakeTwitter.addEventListener('click', () => alert("Follow my journey — reach out via email for social updates."));
-    
     // smooth anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
